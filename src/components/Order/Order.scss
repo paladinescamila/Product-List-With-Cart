@@ -1,0 +1,118 @@
+@import '../../styles/variables.scss';
+
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
+	background-color: rgba($black, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.order {
+	background-color: $white;
+	padding: 40px;
+	border-radius: 10px;
+	min-width: 600px;
+
+	&__title {
+		font-size: 40px;
+		font-weight: 700;
+		color: $rose-900;
+		margin: 24px 0 6px;
+	}
+
+	&__subtitle {
+		font-size: 16px;
+		color: rgba($black, 0.5);
+	}
+
+	&__check {
+		width: 42px;
+		height: 42px;
+	}
+
+	&__summary {
+		padding: 24px;
+		background-color: $rose-50;
+		border-radius: 10px;
+		margin: 30px 0;
+	}
+
+	&__products {
+		display: flex;
+		flex-direction: column;
+		row-gap: 16px;
+	}
+
+	&__total {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 30px;
+
+		p:first-of-type {
+			font-size: 14px;
+			font-weight: 600;
+		}
+
+		p:last-of-type {
+			font-size: 24px;
+			font-weight: 700;
+		}
+	}
+}
+
+.order-item {
+	display: grid;
+	grid-template-columns: max-content 1fr max-content;
+	grid-template-rows: max-content max-content;
+	grid-template-areas: 'image name total' 'image quantity-price total';
+	grid-gap: 8px 16px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid $rose-100;
+
+	&__image {
+		width: 48px;
+		height: 48px;
+		grid-area: image;
+		border-radius: 5px;
+	}
+
+	&__name,
+	&__quantity,
+	&__price {
+		font-size: 14px;
+		font-weight: 600;
+	}
+
+	&__name {
+		color: $rose-900;
+		grid-area: name;
+	}
+
+	&__quantity-price {
+		grid-area: quantity-price;
+		display: flex;
+		column-gap: 10px;
+	}
+
+	&__quantity {
+		color: $red;
+	}
+
+	&__price {
+		color: rgba($black, 0.5);
+	}
+
+	&__total {
+		font-size: 16px;
+		font-weight: 600;
+		color: $rose-900;
+		grid-area: total;
+	}
+}
