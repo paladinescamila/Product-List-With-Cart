@@ -86,8 +86,9 @@ ul {
 *::-webkit-scrollbar-thumb {
 	background: $rose-100;
 	border-radius: 10px;
+	cursor: pointer;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-	background: $red;
+	background: $rose-300;
 }
