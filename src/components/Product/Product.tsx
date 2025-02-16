@@ -32,8 +32,8 @@ export default function Product({product}: ProductProps) {
 					</div>
 				) : (
 					<button className='add-to-cart' onClick={() => addToCart(product.id)}>
-						<img src={AddToCartIcon} alt='Add to cart' />
-						<p>Add to Cart</p>
+						<img src={AddToCartIcon} alt={`Add ${product.name} to cart`} />
+						Add to Cart
 					</button>
 				)}
 			</div>
