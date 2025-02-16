@@ -22,6 +22,15 @@ ul {
 	display: grid;
 	grid-template-columns: max-content 1fr;
 	grid-gap: 34px;
+
+	@media (max-width: 650px) {
+		grid-template-columns: 1fr;
+		grid-template-rows: max-content 1fr;
+	}
+
+	@media (max-width: 1200px) {
+		padding: 24px;
+	}
 }
 
 .title-and-products {
@@ -37,8 +46,16 @@ ul {
 
 .products {
 	display: grid;
-	grid-template-columns: repeat(3, 250px);
+	grid-template-columns: repeat(3, max-content);
 	grid-gap: 34px 25px;
+
+	@media (max-width: 1400px) {
+		grid-template-columns: repeat(2, max-content);
+	}
+
+	@media (max-width: 900px) {
+		grid-template-columns: 1fr;
+	}
 }
 
 .button {

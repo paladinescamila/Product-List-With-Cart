@@ -12,10 +12,10 @@ interface ProductProps {
 
 export default function Product({product}: ProductProps) {
 	const {cart, addToCart, incrementProduct, decrementProfuct} = useCartStore();
-	const image = useMemo(() => getImage(product.id, 'desktop'), [product.id]);
+	const image = useMemo(() => getImage(product.id), [product.id]);
 
 	return (
-		<ul className={`product${cart[product.id] ? '--selected' : ''}`}>
+		<li className={`product${cart[product.id] ? '--selected' : ''}`}>
 			<div className='image-and-add-to-cart'>
 				<img src={image} alt={product.name} className='product__image' />
 				{cart[product.id] ? (
@@ -42,6 +42,6 @@ export default function Product({product}: ProductProps) {
 				<p className='product__name'>{product.name}</p>
 				<p className='product__price'>${product.price.toFixed(2)}</p>
 			</div>
-		</ul>
+		</li>
 	);
 }

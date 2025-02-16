@@ -21,7 +21,7 @@ export default function Order() {
 						{quantities.map(({id, name, price, quantity, total}) => (
 							<li key={`order-${id}`} className='order-item'>
 								<img
-									src={getImage(id, 'thumbnail')}
+									src={getImage(id, true)}
 									alt={`${name} image`}
 									className='order-item__image'
 								/>
