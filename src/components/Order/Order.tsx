@@ -23,7 +23,7 @@ export default function Order() {
 							<li key={`order-${id}`} className='order-item'>
 								<img
 									src={getImage(id, true)}
-									alt={`${name} image`}
+									alt={name}
 									className='order-item__image'
 								/>
 								<p className='order-item__name'>{name}</p>
