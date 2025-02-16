@@ -12,5 +12,3 @@ export const PRODUCTS: {[key in ProductID]: Omit<Product, 'id'>} = {
 
 export const PRODUCTS_IDS: ProductID[] = Object.keys(PRODUCTS) as ProductID[];
 export const PRODUCTS_LIST: Product[] = PRODUCTS_IDS.map((id) => ({...PRODUCTS[id], id}));
-export const CART_SAMPLE: Cart = {tiramisu: 1, 'creme-brulee': 4, 'panna-cotta': 2};
-export const CART_LIST_SAMPLE: CartList = Object.entries(CART_SAMPLE) as CartList;

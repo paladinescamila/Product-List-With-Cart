@@ -1,5 +1,5 @@
 import {useMemo} from 'react';
-import {CART_LIST_SAMPLE} from '../../constants/products';
+import {useCartStore} from '../../store/useCartStore';
 import {calculateOrder} from '../../utils/calculateOrder';
 import {getImage} from '../../utils/getImage';
 import './Order.scss';
@@ -7,7 +7,8 @@ import './Order.scss';
 import OrderConfirmedIcon from '../../assets/order-confirmed.svg';
 
 export default function Order() {
-	const {quantities, totalToPay} = useMemo(() => calculateOrder(CART_LIST_SAMPLE), []);
+	const {cart, resetCart} = useCartStore();
+	const {quantities, totalToPay} = useMemo(() => calculateOrder(cart), [cart]);
 
 	return (
 		<div className='background'>
@@ -38,7 +39,9 @@ export default function Order() {
 						<p>${totalToPay.toFixed(2)}</p>
 					</div>
 				</div>
-				<button className='button'>Start New Order</button>
+				<button className='button' onClick={resetCart}>
+					Start New Order
+				</button>
 			</div>
 		</div>
 	);

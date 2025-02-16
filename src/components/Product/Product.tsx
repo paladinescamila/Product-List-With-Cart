@@ -1,5 +1,5 @@
 import {useMemo} from 'react';
-import {CART_SAMPLE} from '../../constants/products';
+import {useCartStore} from '../../store/useCartStore';
 import {getImage} from '../../utils/getImage';
 import './Product.scss';
 
@@ -11,20 +11,27 @@ interface ProductProps {
 }
 
 export default function Product({product}: ProductProps) {
+	const {cart, addToCart, incrementProduct, decrementProfuct} = useCartStore();
 	const image = useMemo(() => getImage(product.id, 'desktop'), [product.id]);
 
 	return (
-		<ul className={`product${CART_SAMPLE[product.id] ? '--selected' : ''}`}>
+		<ul className={`product${cart[product.id] ? '--selected' : ''}`}>
 			<div className='image-and-add-to-cart'>
 				<img src={image} alt={product.name} className='product__image' />
-				{CART_SAMPLE[product.id] ? (
+				{cart[product.id] ? (
 					<div className='handle-quantity'>
-						<button className='handle-quantity__decrement' />
-						<p>{CART_SAMPLE[product.id]}</p>
-						<button className='handle-quantity__increment' />
+						<button
+							className='handle-quantity__decrement'
+							onClick={() => decrementProfuct(product.id)}
+						/>
+						<p>{cart[product.id]}</p>
+						<button
+							className='handle-quantity__increment'
+							onClick={() => incrementProduct(product.id)}
+						/>
 					</div>
 				) : (
-					<button className='add-to-cart'>
+					<button className='add-to-cart' onClick={() => addToCart(product.id)}>
 						<img src={AddToCartIcon} alt='Add to cart' />
 						<p>Add to Cart</p>
 					</button>

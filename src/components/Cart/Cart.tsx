@@ -1,5 +1,5 @@
 import {useMemo} from 'react';
-import {CART_LIST_SAMPLE} from '../../constants/products';
+import {useCartStore} from '../../store/useCartStore';
 import {calculateOrder} from '../../utils/calculateOrder';
 import './Cart.scss';
 
@@ -8,10 +8,8 @@ import EmptyCartImage from '../../assets/empty-cart.svg';
 import CarbonNeutralIcon from '../../assets/carbon-neutral.svg';
 
 export default function Cart() {
-	const {quantities, totalOfItems, totalToPay} = useMemo(
-		() => calculateOrder(CART_LIST_SAMPLE),
-		[]
-	);
+	const {cart, removeFromCart, confirmOrder} = useCartStore();
+	const {quantities, totalOfItems, totalToPay} = useMemo(() => calculateOrder(cart), [cart]);
 
 	return (
 		<article className='cart'>
@@ -27,7 +25,10 @@ export default function Cart() {
 									<span className='cart-item__price'>@ ${price.toFixed(2)}</span>
 									<span className='cart-item__total'>${total.toFixed(2)}</span>
 								</p>
-								<button className='cart-item__remove' />
+								<button
+									className='cart-item__remove'
+									onClick={() => removeFromCart(id)}
+								/>
 							</li>
 						))}
 					</ul>
@@ -41,7 +42,9 @@ export default function Cart() {
 							This is a <span>carbon-neutral</span> delivery
 						</p>
 					</div>
-					<button className='button'>Confirm Order</button>
+					<button className='button' onClick={confirmOrder}>
+						Confirm Order
+					</button>
 				</>
 			) : (
 				<>
