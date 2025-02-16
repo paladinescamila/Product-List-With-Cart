@@ -11,13 +11,13 @@
 		height: 240px;
 		position: relative;
 		border-radius: 13px;
-		border: 2px solid transparent;
+		outline: 2px solid transparent;
 		transition: $transition;
 	}
 
 	&--selected {
 		.image-and-add-to-cart {
-			border-color: $red;
+			outline-color: $red;
 		}
 	}
 
@@ -35,12 +35,13 @@
 		bottom: 0;
 		transform: translate(-50%, 50%);
 		width: 160px;
-		padding: 13px;
+		min-height: 44px;
+		padding: 0 13px;
 		border-radius: 50px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		column-gap: 10px;
+		column-gap: 7px;
 		font-weight: 600;
 		font-size: 14px;
 		line-height: 20px;
@@ -120,12 +121,6 @@
 		}
 	}
 
-	.product-data {
-		display: flex;
-		flex-direction: column;
-		row-gap: 4px;
-	}
-
 	&__category {
 		font-size: 14px;
 		font-weight: 500;
@@ -141,9 +136,12 @@
 
 	&__name {
 		color: $rose-900;
+		letter-spacing: 0.4px;
+		margin: 4px 0 5px 0;
 	}
 
 	&__price {
 		color: $red;
+		letter-spacing: 0.3px;
 	}
 }

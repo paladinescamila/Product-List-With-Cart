@@ -9,10 +9,11 @@ $rose-500: hsl(12, 20%, 44%);
 $rose-900: hsl(14, 65%, 9%);
 
 $black: #000;
+$gray: #999;
 $white: #fff;
 
 $transition-duration: 0.15s;
 
 $transition: background-color $transition-duration ease-in-out,
 	color $transition-duration ease-in-out, border-color $transition-duration ease-in-out,
-	opacity $transition-duration ease-in-out;
+	outline-color $transition-duration ease-in-out, opacity $transition-duration ease-in-out;
