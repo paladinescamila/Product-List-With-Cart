@@ -11,7 +11,7 @@ interface ProductProps {
 }
 
 export default function Product({product}: ProductProps) {
-	const {cart, addToCart, incrementProduct, decrementProfuct} = useCartStore();
+	const {cart, addToCart, incrementProduct, decrementProduct} = useCartStore();
 	const image = useMemo(() => getImage(product.id), [product.id]);
 
 	return (
@@ -22,7 +22,7 @@ export default function Product({product}: ProductProps) {
 					<div className='handle-quantity'>
 						<button
 							className='handle-quantity__decrement'
-							onClick={() => decrementProfuct(product.id)}
+							onClick={() => decrementProduct(product.id)}
 						/>
 						<p>{cart[product.id]}</p>
 						<button

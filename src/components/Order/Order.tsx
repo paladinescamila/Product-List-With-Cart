@@ -4,11 +4,12 @@ import {calculateOrder} from '../../utils/calculateOrder';
 import {getImage} from '../../utils/getImage';
 import './Order.scss';
 
+// Assets
 import OrderConfirmedIcon from '../../assets/order-confirmed.svg';
 
 export default function Order() {
 	const {cart, resetCart} = useCartStore();
-	const {quantities, totalToPay} = useMemo(() => calculateOrder(cart), [cart]);
+	const {calculatedCart, totalToPay} = useMemo(() => calculateOrder(cart), [cart]);
 
 	return (
 		<div className='background'>
@@ -18,7 +19,7 @@ export default function Order() {
 				<p className='order__subtitle'>We hope you enjoy your food!</p>
 				<div className='order__summary'>
 					<ul className='order__products'>
-						{quantities.map(({id, name, price, quantity, total}) => (
+						{calculatedCart.map(({id, name, price, quantity, total}) => (
 							<li key={`order-${id}`} className='order-item'>
 								<img
 									src={getImage(id, true)}

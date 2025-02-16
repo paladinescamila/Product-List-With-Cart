@@ -5,7 +5,7 @@ import {
 	addToCart,
 	removeFromCart,
 	incrementProduct,
-	decrementProfuct,
+	decrementProduct,
 	confirmOrder,
 	resetCart,
 } from './cartSlice';
@@ -23,7 +23,7 @@ export const useCartStore = () => {
 		addToCart: (productID: ProductID) => dispatch(addToCart(productID)),
 		removeFromCart: (productID: ProductID) => dispatch(removeFromCart(productID)),
 		incrementProduct: (productID: ProductID) => dispatch(incrementProduct(productID)),
-		decrementProfuct: (productID: ProductID) => dispatch(decrementProfuct(productID)),
+		decrementProduct: (productID: ProductID) => dispatch(decrementProduct(productID)),
 		confirmOrder: () => dispatch(confirmOrder()),
 		resetCart: () => dispatch(resetCart()),
 	};

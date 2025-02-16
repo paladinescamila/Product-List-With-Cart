@@ -27,7 +27,7 @@ export const cartSlice = createSlice({
 			const productID = action.payload;
 			state.cart[productID] = (state.cart[productID] || 0) + 1;
 		},
-		decrementProfuct: (state, action: PayloadAction<ProductID>) => {
+		decrementProduct: (state, action: PayloadAction<ProductID>) => {
 			const productID = action.payload;
 			state.cart[productID] = (state.cart[productID] || 0) - 1;
 
@@ -47,7 +47,7 @@ export const {
 	addToCart,
 	removeFromCart,
 	incrementProduct,
-	decrementProfuct,
+	decrementProduct,
 	confirmOrder,
 	resetCart,
 } = cartSlice.actions;

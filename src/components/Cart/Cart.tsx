@@ -9,7 +9,7 @@ import CarbonNeutralIcon from '../../assets/carbon-neutral.svg';
 
 export default function Cart() {
 	const {cart, removeFromCart, confirmOrder} = useCartStore();
-	const {quantities, totalOfItems, totalToPay} = useMemo(() => calculateOrder(cart), [cart]);
+	const {calculatedCart, totalOfItems, totalToPay} = useMemo(() => calculateOrder(cart), [cart]);
 
 	return (
 		<article className='cart'>
@@ -17,7 +17,7 @@ export default function Cart() {
 			{totalOfItems ? (
 				<>
 					<ul className='cart__items'>
-						{quantities.map(({id, name, price, quantity, total}) => (
+						{calculatedCart.map(({id, name, price, quantity, total}) => (
 							<li key={`cart-${id}`} className='cart-item'>
 								<p className='cart-item__name'>{name}</p>
 								<p className='quantity-price-total'>
